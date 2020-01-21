@@ -1,0 +1,148 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Stack for cognito
+Parameters:
+    CognitoDomainCertificateArn:
+        Type: String
+        Description: ARN for the custom domain certificate
+    EnvironmentName:
+        Type: String
+        AllowedValues:
+            - integration
+            - testing
+            - staging
+            - production
+        Description: Environment name
+    FromEmailAddress:
+        Type: String
+        Description: Sender's name with their email address
+    HostedZoneUrl:
+        Type: String
+        Description: Url of the hosted zone to add subdomain to
+    ReplyEmailAddress:
+        Type: String
+        Description: The destination to which the receiver of the email should reply to
+    ServiceName:
+        Type: String
+        Description: Name of the service
+        Default: auth
+    SESConfigurationSet:
+        Type: String
+        Description: Name of the SES configuration set
+    SESEmailAddressArn:
+        Type: String
+        Description: ARN of a verified SES email address
+Resources:
+    CognitoCustomDomain:
+        Type: AWS::Cognito::UserPoolDomain
+        Properties:
+            CustomDomainConfig:
+                CertificateArn: !Ref CognitoDomainCertificateArn
+            Domain: !Sub auth.${HostedZoneUrl}
+            UserPoolId: !Ref Cognito
+    CognitoDomain:
+        Type: AWS::Cognito::UserPoolDomain
+        Properties:
+            Domain: !Sub ${EnvironmentName}
+            UserPoolId: !Ref Cognito
+    Cognito:
+        Type: AWS::Cognito::UserPool
+        DeletionPolicy: Retain
+        DependsOn: SmsPolicy
+        Properties:
+            AdminCreateUserConfig:
+                AllowAdminCreateUserOnly: false
+            AliasAttributes:
+                - phone_number
+                - email
+                - preferred_username
+            DeviceConfiguration:
+                ChallengeRequiredOnNewDevice: true
+                DeviceOnlyRememberedOnUserPrompt: true
+            EnabledMfas:
+                - SOFTWARE_TOKEN_MFA
+                - SMS_MFA
+            EmailConfiguration:
+                ConfigurationSet: !Ref SESConfigurationSet
+                EmailSendingAccount: DEVELOPER
+                From: !Ref FromEmailAddress
+                ReplyToEmailAddress: !Ref ReplyEmailAddress
+                SourceArn: !Ref SESEmailAddressArn
+            EmailVerificationSubject: Please verify your email
+            MfaConfiguration: OPTIONAL
+            Policies:
+                PasswordPolicy:
+                    MinimumLength: 10
+                    RequireLowercase: true
+                    RequireNumbers: true
+                    RequireSymbols: true
+                    RequireUppercase: true
+                    TemporaryPasswordValidityDays: 1
+            Schema:
+                -   AttributeDataType: String
+                    Name: address
+                    Mutable: true
+                    Required: true
+                -   AttributeDataType: String
+                    Name: birthdate
+                    Mutable: true
+                    Required: true
+                -   AttributeDataType: String
+                    Name: email
+                    Mutable: true
+                    Required: true
+                -   AttributeDataType: String
+                    Name: given_name
+                    Mutable: true
+                    Required: true
+                -   AttributeDataType: String
+                    Name: family_name
+                    Mutable: true
+                    Required: true
+                -   AttributeDataType: String
+                    Name: phone_number
+                    Mutable: true
+                    Required: true
+            SmsConfiguration:
+                ExternalId: Signup
+                SnsCallerArn: !GetAtt Role.Arn
+            UserPoolName: !Sub ${EnvironmentName}
+            UserPoolTags:
+                Environment: !Ref EnvironmentName
+                Name: !Ref ServiceName
+                Service: !Ref ServiceName
+    Role:
+        Type: AWS::IAM::Role
+        Properties:
+            AssumeRolePolicyDocument:
+                Version: '2012-10-17'
+                Statement:
+                    -   Effect: Allow
+                        Principal:
+                            Service:
+                                - cognito-idp.amazonaws.com
+                        Action:
+                            - sts:AssumeRole
+            Description: !Sub Role for ${ServiceName}
+            Path: /service-role/
+            RoleName: !Sub ${ServiceName}-${EnvironmentName}
+            Tags:
+                -   Key: Environment
+                    Value: !Ref EnvironmentName
+                -   Key: Name
+                    Value: !Ref ServiceName
+                -   Key: Service
+                    Value: !Ref ServiceName
+    SmsPolicy:
+        Type: AWS::IAM::Policy
+        Properties:
+            PolicyName: !Sub ${ServiceName}-${EnvironmentName}-sns
+            PolicyDocument:
+                Version: 2012-10-17
+                Statement:
+                    -   Effect: Allow
+                        Action:
+                            - sns:publish
+                        Resource: '*'
+            Roles:
+                - !Ref Role
