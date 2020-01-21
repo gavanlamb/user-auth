@@ -146,4 +146,3 @@ Resources:
                         Resource: '*'
             Roles:
                 - !Ref Role
-
