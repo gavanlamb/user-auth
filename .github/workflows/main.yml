@@ -5,7 +5,7 @@ on:
     - master
 
 jobs:
-  deploy:
+  deploy-production:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -13,7 +13,7 @@ jobs:
       env:
         TEMPLATE: './template.yaml'
         CAPABILITIES: CAPABILITY_NAMED_IAM
-        AWS_STACK_NAME: 'auth-user'
+        AWS_STACK_NAME: 'auth-user-production'
         AWS_REGION: 'ap-southeast-2'
         AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
         AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
