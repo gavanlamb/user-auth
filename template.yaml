@@ -38,7 +38,7 @@ Resources:
         Properties:
             CustomDomainConfig:
                 CertificateArn: !Ref CognitoDomainCertificateArn
-            Domain: !Sub ${ServiceName}-user-${EnvironmentName}.${HostedZoneUrl}
+            Domain: !Sub ${ServiceName}-user.${HostedZoneUrl}
             UserPoolId: !Ref Cognito
     CognitoDomain:
         Type: AWS::Cognito::UserPoolDomain
