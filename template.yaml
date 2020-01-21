@@ -43,7 +43,7 @@ Resources:
     CognitoDomain:
         Type: AWS::Cognito::UserPoolDomain
         Properties:
-            Domain: !Sub ${EnvironmentName}
+            Domain: !Sub thoud-user-${EnvironmentName}
             UserPoolId: !Ref Cognito
     Cognito:
         Type: AWS::Cognito::UserPool
