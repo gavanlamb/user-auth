@@ -38,7 +38,7 @@ Resources:
         Properties:
             CustomDomainConfig:
                 CertificateArn: !Ref CognitoDomainCertificateArn
-            Domain: !Sub auth.${HostedZoneUrl}
+            Domain: !Sub ${ServiceName}-user-${EnvironmentName}.${HostedZoneUrl}
             UserPoolId: !Ref Cognito
     CognitoDomain:
         Type: AWS::Cognito::UserPoolDomain
@@ -123,9 +123,9 @@ Resources:
                                 - cognito-idp.amazonaws.com
                         Action:
                             - sts:AssumeRole
-            Description: !Sub Role for ${ServiceName}
+            Description: !Sub Role for user ${ServiceName}
             Path: /service-role/
-            RoleName: !Sub ${ServiceName}-${EnvironmentName}
+            RoleName: !Sub ${ServiceName}-user-${EnvironmentName}
             Tags:
                 -   Key: Environment
                     Value: !Ref EnvironmentName
@@ -136,7 +136,7 @@ Resources:
     SmsPolicy:
         Type: AWS::IAM::Policy
         Properties:
-            PolicyName: !Sub ${ServiceName}-${EnvironmentName}-sns
+            PolicyName: !Sub ${ServiceName}-user-${EnvironmentName}-sns
             PolicyDocument:
                 Version: 2012-10-17
                 Statement:
