@@ -106,7 +106,7 @@ Resources:
             SmsConfiguration:
                 ExternalId: Signup
                 SnsCallerArn: !GetAtt Role.Arn
-            UserPoolName: !Sub ${EnvironmentName}
+            UserPoolName: !Sub user-${EnvironmentName}
             UserPoolTags:
                 Environment: !Ref EnvironmentName
                 Name: !Ref ServiceName
