@@ -1,2 +1,2 @@
-# Auth-User
+# Auth
 Auth for non admin users
