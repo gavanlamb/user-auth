@@ -8,6 +8,7 @@ Parameters:
     EnvironmentName:
         Type: String
         AllowedValues:
+            - development
             - integration
             - testing
             - staging
@@ -146,3 +147,603 @@ Resources:
                         Resource: '*'
             Roles:
                 - !Ref Role
+    User0:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: user0@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+61406000000'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: user0
+            UserPoolId: !Ref Cognito
+    User1:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: user1@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+61406000001'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: user1
+            UserPoolId: !Ref Cognito
+    User2:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User2@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+61406000002'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User2
+            UserPoolId: !Ref Cognito
+    User3:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User3@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+61406000003'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User3
+            UserPoolId: !Ref Cognito
+    User4:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User4@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+61406000004'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User4
+            UserPoolId: !Ref Cognito
+    User5:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User5@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+61406000005'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User5
+            UserPoolId: !Ref Cognito
+    User6:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User6@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+61406000006'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User6
+            UserPoolId: !Ref Cognito
+    User7:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User7@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+61406000007'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User7
+            UserPoolId: !Ref Cognito
+    User8:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User8@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+61406000008'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User8
+            UserPoolId: !Ref Cognito
+    User9:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User9@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+614060000009'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User9
+            UserPoolId: !Ref Cognito
+    User10:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User10@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+614060000010'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User10
+            UserPoolId: !Ref Cognito
+    User11:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User11@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+614060000011'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User11
+            UserPoolId: !Ref Cognito
+    User12:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User12@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+614060000012'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User12
+            UserPoolId: !Ref Cognito
+    User13:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User13@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+614060000013'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User13
+            UserPoolId: !Ref Cognito
+    User14:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User14@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+614060000014'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User14
+            UserPoolId: !Ref Cognito
+    User15:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User15@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+614060000015'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User15
+            UserPoolId: !Ref Cognito
+    User16:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User16@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+614060000016'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User16
+            UserPoolId: !Ref Cognito
+    User17:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User17@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+614060000017'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User17
+            UserPoolId: !Ref Cognito
+    User18:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User18@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+614060000018'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User18
+            UserPoolId: !Ref Cognito
+    User19:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User19@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+614060000019'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User19
+            UserPoolId: !Ref Cognito
+    User20:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User20@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+614060000020'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User20
+            UserPoolId: !Ref Cognito
+    User21:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User21@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+614060000021'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User21
+            UserPoolId: !Ref Cognito
+    User22:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User22@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+614060000022'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User22
+            UserPoolId: !Ref Cognito
+    User23:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User23@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+614060000023'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User23
+            UserPoolId: !Ref Cognito
+    User24:
+        Type: AWS::Cognito::UserPoolUser
+        Properties:
+            DesiredDeliveryMediums:
+                - EMAIL
+            UserAttributes:
+                -   Name: address
+                    Value: 26 Talavera Rd, Macquarie Park NSW 2113
+                -   Name: birthdate
+                    Value: 01/01/2000
+                -   Name: email
+                    Value: User24@thoud.co
+                -   Name: given_name
+                    Value: User
+                -   Name: family_name
+                    Value: User
+                -   Name: phone_number
+                    Value: '+614060000024'
+                -   Name: email_verified
+                    Value: true
+                -   Name: phone_number_verified
+                    Value: true
+            Username: User24
+            UserPoolId: !Ref Cognito
